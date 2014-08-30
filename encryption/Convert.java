@@ -34,7 +34,8 @@ public class Convert {
 	public static byte[] bigIntegerToByte(BigInteger[] big) throws Exception{
 		byte[] b = new byte[big.length];
 		for(int i = 0; i < big.length; i++) {
-			int hold = Integer.parseInt(big[i].toString());
+			BigInteger bInt = new BigInteger("255");
+			int hold = Integer.parseInt((big[i].mod(bInt)).toString());
 			b[i] = (byte) hold;
 		}
 		return b;
